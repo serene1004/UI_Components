@@ -1,0 +1,187 @@
+@charset "UTF-8";
+
+$test-white : #fff;
+$test-textColor : #232323;
+$test-inputBg : #e1e1e1;
+$test-formBg : #ccf7ff;
+$test-formBtn : #1ee5ff;
+$test-formBtnHover : #0099ff;
+$test-alertColor : #ee4c4c;
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .container {
+        max-width: 1180px;
+        width: auto;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.login_form {
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: -120px 30px 0;
+
+    background: $test-formBg;
+    border-radius: 10px;
+    padding: 80px 50px;
+
+    .tap_sign {
+        width: 100%;
+
+        button {
+            background: transparent;
+            color: $test-textColor;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+    }
+
+    .id_pw_wrap {
+        width: 100%;
+        
+        div {
+            margin-top: 20px;
+            
+            input{
+                width: 100%;
+                background: $test-white;
+                padding: 15px;
+                color: $test-textColor;
+                font-size: 18px;
+                border: 0;
+                border-radius: 5px;
+
+                &:focus {
+                    outline: 0;
+                }
+                &::placeholder {
+                    color: #9d9d9d;
+                }
+                &:focus::placeholder {
+                    opacity: 0;
+                }
+            }
+        }
+    
+        .id_area {
+            position: relative;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                top: -24px;
+                border-top: 12px solid transparent;    
+                border-right: 10px solid transparent;    
+                border-bottom: 12px solid $test-white;    
+                border-left: 10px solid transparent;  
+                transition: all .6s;
+            }
+
+            &.sign_in::after {
+                left: 20px;  
+            }
+
+            &.sign_up::after {
+                left: 110px; 
+            }
+        }
+    }
+
+    .remember_help_wrap {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0 20px;
+        transition: all .6s;
+
+        .id_remember {
+            visibility: visible;
+            opacity: 1;
+            transition: all .6s;
+        }
+
+        &.sign_up {
+            padding: 5px 0;
+            
+            .id_remember {
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
+
+        input[type="checkbox"] + label {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: $test-white;
+            border: 1px solid $test-white;
+            position: relative;
+            text-indent: 24px;
+            border-radius: 4px;
+            white-space: nowrap;
+            // user-select: none;
+            cursor: pointer;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 1px;
+                left: 5px;
+                width: 5px;
+                height: 10px;
+                border: solid $test-formBtn;
+                border-width: 0 3px 3px 0;
+                border-radius: 3px;
+                transform-origin: 50%;
+                transform: rotate(45deg) scale(0);
+                transition: all .1s;
+            }
+        }
+
+        input[type="checkbox"]:checked + label {
+
+            &::after {
+                transform: rotate(45deg) scale(1);
+                animation: aniChecked .2s;
+                @keyframes aniChecked {
+                    0% {transform: rotate(45deg) scale(0);}
+                    80% {transform: rotate(45deg) scale(1.25);}
+                    100% {transform: rotate(45deg) scale(1);}
+                }
+            }
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+    }
+
+    .btn_login {
+        width: 100%;
+        background: $test-formBtn;
+        padding: 15px;
+        color: $test-white;
+        font-size: 18px;
+        border-radius: 5px;
+        transition: all .6s;
+        cursor: pointer;
+
+        &:hover {
+            background: $test-formBtnHover;
+        }
+    }
+}

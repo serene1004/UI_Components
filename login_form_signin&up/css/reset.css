@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+* {margin: 0;padding: 0;box-sizing: border-box;}
+html {overflow-y:auto;}
+html, body {width: 100%;height: 100%;font-family: 'Pretendard-Regular';}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, section, summary,
+time, mark, audio, video {margin:0; padding:0; border:0; font-size:inherit; vertical-align:baseline; font-weight:normal;}
+
+ul, li {list-style: none;}
+a {text-decoration: none;color: #191919;}
+a:hover {outline: 0;}
+a:focus {outline: 0;}
+em, i, address {font-style: normal;}
+table {border-collapse: collapse;}
+button {font-family: 'Pretendard-Regular';padding: 0;border: 0;cursor: pointer;}
+
+textarea {width: 100%;resize: none;padding: 3px 5px;}
+input, select, textarea {font-family: 'Pretendard-Regular';font-size: 14px;background-color: #fff;border: 2px solid #d9d9d9;}
+input {padding: 3px 5px;}
+input:focus {outline: 0;}
+input::placeholder {color: #9d9d9d;}
+input:focus::placeholder {opacity: 0;}
+option {font-family: 'Pretendard-Regular';font-size: 14px;}
+
+.hide, legend, caption {position: absolute;left: -9999px;width: 0;height: 0;overflow: hidden;text-indent: -9999px;}
+.a11y-hidden {overflow: hidden !important; clip:rect(0 0 0 0); clip:rect(0,0,0,0); position: absolute;width: 1px !important;height: 1px !important;margin: -1px;border: 0;padding: 0;}
+.a11y-hidden.focusable:focus,
+.a11y-hidden.focusable:active {outline: visible; clip:auto; position: static; width: auto;height: auto;margin: 0;}
+
+#skip {z-index: 9999;position: fixed;top: 0;left: 0;text-align: center;}
+#skip a {display: block;line-height: 0;font-size: 0;}
+#skip a:focus {font-size: 30px;line-height: 1.2;padding: 0 10px;background: #fff;outline: 2px solid #ddf;}
