@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+* {margin: 0;padding: 0;box-sizing: border-box;font-size: 14px;}
+.container {max-width: 1000px;margin: 0 auto;padding: 80px 0;}
+.dragdrop-area .dragdrop-wrap:first-child {margin-bottom: 30px;}
+.dragdrop-area .dragdrop-wrap:last-child .dragdrop-box {height: auto;}
+.dragdrop-area .dragdrop-title {color: #191919;font-size: 18px;font-weight: bold;margin-bottom: 10px;}
+.dragdrop-area .dragdrop-box {display: flex;border: 1px solid #cdcdcd;box-sizing: border-box;height: 120px;user-select:none}
+.dragdrop-area #dragdrop-basebox,
+.dragdrop-area #dragdrop-box01,
+.dragdrop-area #dragdrop-box02,
+.dragdrop-area #dragdrop-box03,
+.dragdrop-area #dragdrop-box04,
+.dragdrop-area #dragdrop-box05 {width: calc(100% - 80px);padding: 10px;border-bottom: 0;min-height: 60px;}
+.dragdrop-area #dragdrop-basebox span,
+.dragdrop-area #dragdrop-box01 span,
+.dragdrop-area #dragdrop-box02 span,
+.dragdrop-area #dragdrop-box03 span,
+.dragdrop-area #dragdrop-box04 span,
+.dragdrop-area #dragdrop-box05 span  {display: inline-block;width: auto;color: #191919;border: 1px solid #cdcdcd;border-radius: 20px;margin: 5px;padding: 5px 10px;cursor: pointer;}
+.dragdrop-area #dragdrop-basebox span img {display: none;}
+.dragdrop-area #dragdrop-box01 span img,
+.dragdrop-area #dragdrop-box02 span img,
+.dragdrop-area #dragdrop-box03 span img,
+.dragdrop-area #dragdrop-box04 span img,
+.dragdrop-area #dragdrop-box05 span img {margin-left: 5px;margin-bottom: -5px;}
+
+.dragdrop-bottom-box {display: flex;flex-direction: column;width: 100%;}
+.dragdrop-bottom-box li {display: flex;border-bottom: 1px solid #cdcdcd;box-sizing: border-box;}
+.dragdrop-bottom-box li:last-child {border-bottom: 0;}
+.dragdrop-bottom-box li .dragdrop-cont-title {display: flex;align-items: center;width: 80px;background: #fbfbfc;padding: 0 10px;}
