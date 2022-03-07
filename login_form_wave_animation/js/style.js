@@ -1,5 +1,5 @@
 const labels = document.querySelectorAll('.id_pw label');
-const inputs = document.querySelectorAll('.id_pw input'); 
+const inputs = document.querySelectorAll('.id_pw input');
 
 labels.forEach((label) => {        
     label.innerHTML = label.innerText
@@ -10,18 +10,31 @@ labels.forEach((label) => {
     .join("");
 });
 
-let labelSpan = document.querySelectorAll('.label_span');
+function setLoginFormAnimation () {
+    let labelSpan = document.querySelectorAll('.label_span');
 
-for (let i = 0; i < labels.length; i++) {
-    inputs[i].addEventListener('focusout', function() {
-        if (inputs[i].value.length > 0) {
-            for (let j = 0; j < labelSpan.length; j++) {
-                labels[i].children[j].classList.add('on');
+    window.addEventListener('load', function(){
+        for (let i = 0; i < labels.length; i++) {
+            if (inputs[i].value.length > 0) {
+                for (let j = 0; j < labelSpan.length; j++) {
+                    labels[i].children[j].classList.add('on');
+                }
             }
-        } else {
-            for (let j = 0; j < labelSpan.length; j++) {
-                labels[i].children[j].classList.remove('on');
-            }
-        }
+        };
     });
-}
+    
+    for (let i = 0; i < labels.length; i++) {
+        inputs[i].addEventListener('focusout', function() {
+            if (inputs[i].value.length > 0) {
+                for (let j = 0; j < labelSpan.length; j++) {
+                    labels[i].children[j].classList.add('on');
+                }
+            } else {
+                for (let j = 0; j < labelSpan.length; j++) {
+                    labels[i].children[j].classList.remove('on');
+                }
+            }
+        });
+    };        
+};
+setLoginFormAnimation();
