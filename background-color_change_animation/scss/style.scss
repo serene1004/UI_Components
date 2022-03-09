@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    .background {
+        width: 300px;
+        height: 300px;
+        margin: 0 30px;
+        overflow: hidden;
+    }
+}
+
+.background_01 {
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #f00, $alpha: .3);
+    filter: hue-rotate(360deg);
+    animation: backgroundAnimation01 6s linear infinite;
+}
+
+.background_02 {
+    width: 300%;
+    height: 100%;
+    background: linear-gradient(to right, rgba($color: #f00, $alpha: .3), rgba($color: #f90, $alpha: .3), rgba($color: #ff0, $alpha: .3), rgba($color: #0f0, $alpha: .3), rgba($color: #00f, $alpha: .3), rgba($color: #50f, $alpha: .3), rgba($color: #80f, $alpha: .3));
+    animation: backgroundAnimation02 6s linear infinite;
+}
+
+@keyframes backgroundAnimation01 {
+    0% {filter: hue-rotate(0deg);}
+    100% {filter: hue-rotate(360deg);}
+}
+@keyframes backgroundAnimation02 {
+    0% {background-position-x: 900px;}
+    50% {background-position-x: 300px;}
+    100% {background-position-x: 900px;}
+}
