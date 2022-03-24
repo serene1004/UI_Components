@@ -1,4 +1,4 @@
-# 오락실 게임기 패드 #
+# 오락실 게임기 패드
 
 ![오락실게임기패드](./the_arcade_game_console_pad.gif)
 
