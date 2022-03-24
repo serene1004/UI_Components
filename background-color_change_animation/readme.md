@@ -1,4 +1,4 @@
-# background-color change animation #
+# background-color change animation
 
 ![background-color change animation](./background_animation.gif)
 
