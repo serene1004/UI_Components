@@ -1,6 +1,6 @@
 # scaleX()와 transform-origin을 이용한 line animation
 
-<img src="./line_animation.gif" style="width:800px;">
+![line animation](./line_animation.gif)
 
 transform: scaleX(0), transform-origin: right 를
 
