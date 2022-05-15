@@ -1,0 +1,178 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+$black : #191919;
+$white : #fff;
+$gray : #999;
+$point01 : rgb(170, 80, 255);
+$point02 : rgb(120, 165, 255);
+$point03 : rgb(20, 255, 245);
+
+
+* {
+    margin: 0;
+    padding: 0;
+    color: $black;
+    font-family: 'pretendard';
+    list-style: none;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 80px 70px;
+}
+
+.btn-wrap {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.circularWave-button {
+    display: inline-block;
+    position: relative;
+    margin-left: auto;
+    padding: 12px 24px;
+    background: $point01;
+    color: $white;
+    font-size: 18px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        margin-left: -10px;
+        background: $white;
+        border-radius: 50%;
+        opacity: 0.1;
+        transform: scale(0);
+        transition: all 0s ease-out;
+    }
+
+    &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        margin-left: -10px;
+        background: $white;
+        border-radius: 50%;
+        opacity: 0.1;
+        transform: scale(0);
+        transition: all 0s ease-out;
+    }
+
+    &:hover {
+
+        &::before {
+            transform: scale(10);
+            transition: all 1s ease-out;
+        }
+
+        &::after {
+            transform: scale(10);
+            transition: all 1.5s ease-out;
+        }
+    }
+}
+
+.box-wrap {
+    display: flex;
+}
+
+.left-box {
+    width: 50%;
+    margin-right: 5px;
+
+    &__top-box,
+    &__bottom-box {
+        border: 1px solid $gray;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    &__top-box {
+        margin-bottom: 10px;
+    }
+
+    &__img-area {
+        height: 250px;
+        background: $point03;
+    }
+
+    &__text {
+        margin: 20px 0;
+        padding: 0 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &__title-date {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        padding: 0 20px;
+    }
+
+    &__title {
+        color: $point01;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
+    &__date {
+        font-size: 16px;
+        margin-left: 10px;
+    }
+}
+
+.right-box {
+    width: 50%;
+    margin-left: 5px;
+    border: 1px solid $gray;
+    border-radius: 16px;
+    overflow: hidden;
+
+    &__img-area {
+        height: 364px;
+        background: $point02;
+    }
+
+    &__text {
+        margin: 20px 0;
+        padding: 0 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &__title-date {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+        padding: 0 20px;
+    }
+
+    &__title {
+        color: $point01;
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+
+    &__date {
+        font-size: 16px;
+        margin-left: 10px;
+    }
+}
