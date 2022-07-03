@@ -1,0 +1,98 @@
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+$black : #191919;
+$white : #ffffff;
+$point : #46acf0;
+$border : #c4c4c4;
+
+* {
+    margin: 0;
+    padding: 0;
+    color: $black;
+    font-family: 'pretendard';
+    list-style: none;
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1320px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.select-box {
+    position: relative;
+    width: 80px;
+    height: 30px;
+    margin: 0 10px;
+    
+    select {
+        position: relative;
+        z-index: 2;
+        width: inherit;
+        height: inherit;
+        padding: 5px;
+        background: transparent;
+        color: $black;
+        font-size: 14px;
+        border: 2px solid $border;
+        border-radius: 4px;
+        outline: 0;
+        transition: border .2s ease-out;
+        appearance: none;
+    }
+
+    .arrow {
+        display: inline-block;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 2px;
+            margin-top: -1px;
+            margin-left: -8px;
+            background: $border;
+            transform: rotate(45deg);
+            transition: all .2s ease-out;
+        }
+        &::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 2px;
+            margin-top: -1px;
+            margin-left: -2px;
+            background: $border;
+            transform: rotate(-45deg);
+            transition: all .2s ease-out;
+        }
+    }
+    select:focus {
+        border-color: $point;
+    }
+    select:focus + .arrow::before {
+        background-color: $point;
+        transform: rotate(-45deg);
+    }
+    select:focus + .arrow::after {
+        background-color: $point;
+        transform: rotate(45deg);
+    }
+}

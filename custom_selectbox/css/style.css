@@ -1,0 +1,111 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+* {
+  margin: 0;
+  padding: 0;
+  color: #191919;
+  font-family: 'pretendard';
+  list-style: none;
+  text-decoration: none;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 1320px;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.select-box {
+  position: relative;
+  width: 80px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+.select-box select {
+  position: relative;
+  z-index: 2;
+  width: inherit;
+  height: inherit;
+  padding: 5px;
+  background: transparent;
+  color: #191919;
+  font-size: 14px;
+  border: 2px solid #c4c4c4;
+  border-radius: 4px;
+  outline: 0;
+  -webkit-transition: border .2s ease-out;
+  transition: border .2s ease-out;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.select-box .arrow {
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+}
+
+.select-box .arrow::before {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 2px;
+  margin-top: -1px;
+  margin-left: -8px;
+  background: #c4c4c4;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+}
+
+.select-box .arrow::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 2px;
+  margin-top: -1px;
+  margin-left: -2px;
+  background: #c4c4c4;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+}
+
+.select-box select:focus {
+  border-color: #46acf0;
+}
+
+.select-box select:focus + .arrow::before {
+  background-color: #46acf0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.select-box select:focus + .arrow::after {
+  background-color: #46acf0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
