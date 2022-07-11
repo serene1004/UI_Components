@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   color: #191919;
-  font-family: 'pretendard';
+  font-family: "pretendard";
   list-style: none;
   text-decoration: none;
 }
@@ -26,7 +26,7 @@
   position: relative;
   margin-left: auto;
   padding: 12px 24px;
-  background: #aa50ff;
+  background: rgb(170, 80, 255);
   color: #fff;
   font-size: 18px;
   border: 0;
@@ -34,9 +34,8 @@
   cursor: pointer;
   overflow: hidden;
 }
-
 .circularWave-button::before {
-  content: '';
+  content: "";
   display: inline-block;
   position: absolute;
   top: 50%;
@@ -53,9 +52,8 @@
   -webkit-transition: all 0s ease-out;
   transition: all 0s ease-out;
 }
-
 .circularWave-button::after {
-  content: '';
+  content: "";
   display: inline-block;
   position: absolute;
   top: 50%;
@@ -72,14 +70,12 @@
   -webkit-transition: all 0s ease-out;
   transition: all 0s ease-out;
 }
-
 .circularWave-button:hover::before {
   -webkit-transform: scale(10);
           transform: scale(10);
   -webkit-transition: all 1s ease-out;
   transition: all 1s ease-out;
 }
-
 .circularWave-button:hover::after {
   -webkit-transform: scale(10);
           transform: scale(10);
@@ -97,29 +93,24 @@
   width: 50%;
   margin-right: 5px;
 }
-
 .left-box__top-box, .left-box__bottom-box {
   border: 1px solid #999;
   border-radius: 16px;
   overflow: hidden;
 }
-
 .left-box__top-box {
   margin-bottom: 10px;
 }
-
 .left-box__img-area {
   height: 250px;
-  background: #14fff5;
+  background: rgb(20, 255, 245);
 }
-
 .left-box__text {
   margin: 20px 0;
   padding: 0 20px;
   font-size: 18px;
   font-weight: bold;
 }
-
 .left-box__title-date {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -130,13 +121,11 @@
   margin: 20px 0;
   padding: 0 20px;
 }
-
 .left-box__title {
-  color: #aa50ff;
+  color: rgb(170, 80, 255);
   font-size: 18px;
   text-transform: uppercase;
 }
-
 .left-box__date {
   font-size: 16px;
   margin-left: 10px;
@@ -149,19 +138,16 @@
   border-radius: 16px;
   overflow: hidden;
 }
-
 .right-box__img-area {
   height: 364px;
-  background: #78a5ff;
+  background: rgb(120, 165, 255);
 }
-
 .right-box__text {
   margin: 20px 0;
   padding: 0 20px;
   font-size: 18px;
   font-weight: bold;
 }
-
 .right-box__title-date {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -172,13 +158,11 @@
   margin: 20px 0;
   padding: 0 20px;
 }
-
 .right-box__title {
-  color: #aa50ff;
+  color: rgb(170, 80, 255);
   font-size: 18px;
   text-transform: uppercase;
 }
-
 .right-box__date {
   font-size: 16px;
   margin-left: 10px;
