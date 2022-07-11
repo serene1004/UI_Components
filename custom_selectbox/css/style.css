@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   color: #191919;
-  font-family: 'pretendard';
+  font-family: "pretendard";
   list-style: none;
   text-decoration: none;
 }
@@ -29,7 +29,6 @@
   height: 30px;
   margin: 0 10px;
 }
-
 .select-box select {
   position: relative;
   z-index: 2;
@@ -42,13 +41,12 @@
   border: 2px solid #c4c4c4;
   border-radius: 4px;
   outline: 0;
-  -webkit-transition: border .2s ease-out;
-  transition: border .2s ease-out;
+  -webkit-transition: border 0.2s ease-out;
+  transition: border 0.2s ease-out;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
 }
-
 .select-box .arrow {
   display: inline-block;
   position: absolute;
@@ -59,9 +57,8 @@
   height: 20px;
   margin-top: -10px;
 }
-
 .select-box .arrow::before {
-  content: '';
+  content: "";
   display: inline-block;
   position: absolute;
   top: 50%;
@@ -73,12 +70,11 @@
   background: #c4c4c4;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  -webkit-transition: all .2s ease-out;
-  transition: all .2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
-
 .select-box .arrow::after {
-  content: '';
+  content: "";
   display: inline-block;
   position: absolute;
   top: 50%;
@@ -90,20 +86,17 @@
   background: #c4c4c4;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  -webkit-transition: all .2s ease-out;
-  transition: all .2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
-
 .select-box select:focus {
   border-color: #46acf0;
 }
-
 .select-box select:focus + .arrow::before {
   background-color: #46acf0;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
-
 .select-box select:focus + .arrow::after {
   background-color: #46acf0;
   -webkit-transform: rotate(45deg);
