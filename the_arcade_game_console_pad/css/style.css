@@ -52,7 +52,6 @@ button {
 .joystick {
   width: 200px;
 }
-
 .joystick span {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -71,9 +70,8 @@ button {
           box-shadow: inset 5px 5px rgba(0, 0, 0, 0.3), 5px 5px 5px rgba(0, 0, 0, 0.3);
   position: relative;
 }
-
 .joystick span::before {
-  content: '';
+  content: "";
   display: inline-block;
   width: 80px;
   height: 80px;
@@ -86,9 +84,8 @@ button {
   -webkit-box-shadow: inset 5px 5px rgba(0, 0, 0, 0.3), 5px 5px 5px rgba(0, 0, 0, 0.3);
           box-shadow: inset 5px 5px rgba(0, 0, 0, 0.3), 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
-
 .joystick span::after {
-  content: '';
+  content: "";
   display: inline-block;
   width: 60px;
   height: 60px;
@@ -106,7 +103,6 @@ button {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
-
 .joystick span button {
   position: relative;
   z-index: 2;
@@ -117,8 +113,8 @@ button {
           box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
   -webkit-transform-origin: center;
           transform-origin: center;
-  -webkit-transition: all .1s;
-  transition: all .1s;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
 }
 
 .button_wrap {
@@ -129,7 +125,6 @@ button {
       flex-wrap: wrap;
   width: 400px;
 }
-
 .button_wrap span {
   display: inline-block;
   width: 96px;
@@ -140,41 +135,33 @@ button {
           box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
   border-radius: 50%;
 }
-
 .button_wrap span button {
   -webkit-box-shadow: 3px 3px 3px #acacac, -3px 3px 3px #fbfbfb;
           box-shadow: 3px 3px 3px #acacac, -3px 3px 3px #fbfbfb;
 }
-
 .button_wrap span:nth-child(1) button, .button_wrap span:nth-child(4) button {
   background: linear-gradient(145deg, #b30200, #960200);
 }
-
 .button_wrap span:nth-child(1) button.on, .button_wrap span:nth-child(4) button.on {
   background: linear-gradient(145deg, #960200, #b30200);
   -webkit-box-shadow: inset 5px 5px #8b0200;
           box-shadow: inset 5px 5px #8b0200;
 }
-
 .button_wrap span:nth-child(3) {
   position: relative;
   top: 60px;
 }
-
 .button_wrap span:nth-child(3) button {
   background: linear-gradient(145deg, #ffff3d, #e3de33);
 }
-
 .button_wrap span:nth-child(3) button.on {
   background: linear-gradient(145deg, #e3de33, #ffff3d);
   -webkit-box-shadow: inset 5px 5px #e3de33;
           box-shadow: inset 5px 5px #e3de33;
 }
-
 .button_wrap span:nth-child(2) button, .button_wrap span:nth-child(5) button {
   background: linear-gradient(145deg, #3258b3, #2a4a96);
 }
-
 .button_wrap span:nth-child(2) button.on, .button_wrap span:nth-child(5) button.on {
   background: linear-gradient(145deg, #2a4a96, #3258b3);
   -webkit-box-shadow: inset 5px 5px #254286;
