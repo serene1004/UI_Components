@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   color: #191919;
-  font-family: 'pretendard';
+  font-family: "pretendard";
   list-style: none;
   text-decoration: none;
 }
@@ -23,14 +23,13 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
-
 .container__title {
   margin-bottom: 30px;
   font-size: 28px;
   font-weight: bold;
   text-transform: uppercase;
-  background: -webkit-gradient(linear, left top, right bottom, from(#78a5ff), to(#14fff5));
-  background: linear-gradient(to right bottom, #78a5ff, #14fff5);
+  background: -webkit-gradient(linear, left top, right bottom, from(rgb(120, 165, 255)), to(rgb(20, 255, 245)));
+  background: linear-gradient(to right bottom, rgb(120, 165, 255), rgb(20, 255, 245));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -41,56 +40,47 @@
   display: -ms-flexbox;
   display: flex;
 }
-
 .journal__item {
   width: 33.3333%;
   margin-right: 20px;
   overflow: hidden;
 }
-
 .journal__link {
   display: block;
 }
-
 .journal__link:hover .journal__article::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
   -webkit-transform-origin: left center;
           transform-origin: left center;
 }
-
 .journal__link:hover .journal__article svg {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
   -webkit-transform-origin: left center;
           transform-origin: left center;
 }
-
 .journal__link:hover .journal__article__title, .journal__link:hover .journal__article__text, .journal__link:hover .journal__article__date {
   opacity: 1;
 }
-
 .journal__category {
   margin-bottom: 10px;
   font-size: 18px;
   font-weight: bold;
 }
-
 .journal__image {
   height: 360px;
   margin-bottom: 20px;
-  background: -webkit-gradient(linear, left top, right bottom, from(#78a5ff), to(#14fff5));
-  background: linear-gradient(to right bottom, #78a5ff, #14fff5);
-  opacity: .5;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgb(120, 165, 255)), to(rgb(20, 255, 245)));
+  background: linear-gradient(to right bottom, rgb(120, 165, 255), rgb(20, 255, 245));
+  opacity: 0.5;
 }
-
 .journal__article {
   position: relative;
   padding: 10px 0;
 }
-
 .journal__article::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   z-index: 0;
@@ -100,9 +90,8 @@
   height: 1px;
   background: rgba(0, 0, 0, 0.2);
 }
-
 .journal__article::after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   z-index: 1;
@@ -110,27 +99,25 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: -webkit-gradient(linear, left top, right bottom, from(#78a5ff), to(#14fff5));
-  background: linear-gradient(to right bottom, #78a5ff, #14fff5);
+  background: -webkit-gradient(linear, left top, right bottom, from(rgb(120, 165, 255)), to(rgb(20, 255, 245)));
+  background: linear-gradient(to right bottom, rgb(120, 165, 255), rgb(20, 255, 245));
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
   -webkit-transform-origin: right center;
           transform-origin: right center;
-  -webkit-transition: -webkit-transform .4s;
-  transition: -webkit-transform .4s;
-  transition: transform .4s;
-  transition: transform .4s, -webkit-transform .4s;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
 }
-
 .journal__article__title {
   position: relative;
   margin-bottom: 10px;
   font-size: 18px;
   font-weight: bold;
   line-height: 24px;
-  opacity: .5;
+  opacity: 0.5;
 }
-
 .journal__article__title svg {
   position: absolute;
   top: 0;
@@ -139,12 +126,11 @@
           transform: scaleX(0);
   -webkit-transform-origin: right center;
           transform-origin: right center;
-  -webkit-transition: -webkit-transform .4s;
-  transition: -webkit-transform .4s;
-  transition: transform .4s;
-  transition: transform .4s, -webkit-transform .4s;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
 }
-
 .journal__article__text {
   margin-bottom: 5px;
   font-size: 16px;
@@ -152,7 +138,6 @@
   -webkit-transition: all 0.4s cubic-bezier(0, 0.15, 0, 0.5);
   transition: all 0.4s cubic-bezier(0, 0.15, 0, 0.5);
 }
-
 .journal__article__date {
   display: inline-block;
   font-size: 14px;
