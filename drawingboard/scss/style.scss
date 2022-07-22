@@ -1,0 +1,85 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+$black : #191919;
+$white : #ffffff;
+$border : #c4c4c4;
+
+* {
+    margin: 0;
+    padding: 0;
+    background: $white;
+    color: $black;
+    font-family: 'pretendard';
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+}
+
+[class^="bx"] {
+    font-size: 1.5rem;
+}
+
+.app {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;    
+}
+.canvas-box {
+    position: relative;
+    transition: all .2s;
+
+    &__header {
+        width: 100%;
+        height: 30px;
+        border: 2px solid $border;
+        border-bottom: 0;
+
+        &__btn-wrap {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            height: 100%;
+        }
+
+        &__btn {
+            width: 30px;
+            height: 100%;
+            padding: 3px;
+            margin-left: 8px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        .full i {
+            font-size: 1.25rem;
+        }
+    }
+
+    #drawingBoard {
+        width: 100%;
+        border: 2px solid $border;
+
+        &.fold {
+            height: 0;
+            transform: translateY(-13px);
+            border-bottom: 0;
+        }
+    }
+}
