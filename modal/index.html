@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">
+            <h2>Hello World</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde exercitationem deleniti doloribus aliquam reprehenderit nemo est eum quis magnam, optio molestias dolor facilis numquam in ratione accusamus, nam consectetur commodi.</p>
+            <button type="button" class="btn-modal">OPEN</button>
+        </div>
+    </div>
+    <div class="modal-wrap">
+        <div class="dim"></div>
+        <div class="modal">
+            <div class="modal__header">
+                <div class="modal__title">Modal title</div>
+                <button type="button" class="btn-close"><span class="blind">close</span></button>
+            </div>
+            <div class="modal__main">
+                <div class="table-type">
+                    <table>
+                        <colgroup>
+                            <col width="80px;">
+                            <col width="*">
+                            <col width="120px">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Title</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3</td>
+                                <td class="td-left">Hello World</td>
+                                <td>2022.09.26</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="td-left">Hello World</td>
+                                <td>2022.09.25</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td class="td-left">Hello World</td>
+                                <td>2022.09.24</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <div class="box">
+                    <button type="button" class="btn-check">CHECK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        function modal () {
+            let btnModal = document.querySelector('.btn-modal');
+            let btnClose = document.querySelector('.btn-close');
+            let modalWrap = document.querySelector('.modal-wrap');
+            let dim = document.querySelector('.modal-wrap .dim');
+            
+            // 모달열기
+            function modalOpen () {
+                btnModal.addEventListener('click', () => {
+                    modalWrap.style.display = 'block';
+                    modalPosition ();
+                })
+            }
+            modalOpen ();
+    
+            // 모달닫기
+            function modalClose () {  
+                // dim 영역 클릭시 모달 닫기          
+                dim.addEventListener('click', () => {
+                    modalWrap.style.display = 'none';
+                })
+        
+                // X버튼 클릭시 모달 닫기
+                btnClose.addEventListener('click', () => {
+                    modalWrap.style.display = 'none';
+                })
+            }
+            modalClose ();
+    
+            // 모달창 중앙에 위치시키기
+            function modalPosition () {
+                let modal = document.querySelector('.modal');
+                let modalWidth = modal.clientWidth;
+                let modalHeight = modal.clientHeight;
+
+                // calc로 위치잡기
+                // modal.style.setProperty('top', 'calc(50% - '+(modalHeight/2)+'px)');
+                // modal.style.setProperty('left', 'calc(50% - '+(modalWidth/2)+'px)');
+
+                // transform으로 위치잡기
+                modal.style.top = '50%';
+                modal.style.left = '50%';
+                modal.style.transform = 'translate(-50%, -50%)'
+            }
+        }
+        modal ();
+    })
+</script>
+</html>
