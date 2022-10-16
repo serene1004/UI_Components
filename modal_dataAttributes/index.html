@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal data attributes</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">
+            <h2>Hello World</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde exercitationem deleniti doloribus aliquam reprehenderit nemo est eum quis magnam, optio molestias dolor facilis numquam in ratione accusamus, nam consectetur commodi.</p>
+            <div class="box">
+                <button type="button" class="btn-modal" data-target="modal-01">OPEN01</button>
+                <button type="button" class="btn-modal" data-target="modal-02">OPEN02</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-wrap">
+        <div class="dim"></div>
+        <!-- modal-01 -->
+        <div class="modal modal-01">
+            <div class="modal__header">
+                <div class="modal__title">Modal01</div>
+                <button type="button" class="btn-close"><span class="blind">close</span></button>
+            </div>
+            <div class="modal__main">
+                <div class="table-container">
+                    <table>
+                        <colgroup>
+                            <col width="80px;">
+                            <col width="*">
+                            <col width="120px">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Title</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3</td>
+                                <td class="td-left">HTML</td>
+                                <td>2022.10.16</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="td-left">CSS</td>
+                                <td>2022.10.15</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td class="td-left">javaScript</td>
+                                <td>2022.10.14</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <div class="box">
+                    <button type="button" class="btn-check">CHECK</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal02 -->
+        <div class="modal modal-02">
+            <div class="modal__header">
+                <div class="modal__title">Modal02</div>
+                <button type="button" class="btn-close"><span class="blind">close</span></button>
+            </div>
+            <div class="modal__main">
+                <div class="table-container">
+                    <table>
+                        <colgroup>
+                            <col width="80px;">
+                            <col width="*">
+                            <col width="120px">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Title</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3</td>
+                                <td class="td-left">HTML</td>
+                                <td>2022.10.16</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td class="td-left">CSS</td>
+                                <td>2022.10.15</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td class="td-left">javaScript</td>
+                                <td>2022.10.14</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <div class="box">
+                    <button type="button" class="btn-check">CHECK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/modal.js"></script>
+</html>
