@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom File Upload</title>
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">
+            <div class="filebox">
+                <h2>첨부파일</h2>
+                <div class="file-upload">
+                    <input type="file" id="fileUpload" class="upload-hidden blind">
+                    <input type="text" class="file-name" disabled="" placeholder="파일을 첨부하세요.">
+                    <label for="fileUpload" class="btn-upload">첨부</label>
+                    <button type="button" class="btn-del"><span class="blind">삭제</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 커스텀파일업로드
+    function customFileUpload () {
+        document.querySelector('.upload-hidden').addEventListener('change', () => {
+            document.querySelector('.file-name').value = document.querySelector('.upload-hidden').files[0].name;
+            document.querySelector('.file-upload .btn-del').style.display = 'inline-block';
+        })
+    
+        document.querySelector('.file-upload .btn-del').addEventListener('click', () => {
+            document.querySelector('.file-name').value = null;
+            document.querySelector('.upload-hidden').value = null;
+            document.querySelector('.file-upload .btn-del').style.display = 'none';
+        })
+    }
+    customFileUpload ();
+</script>
+</html>
