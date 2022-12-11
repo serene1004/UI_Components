@@ -1,6 +1,6 @@
 # custom radio
 
-![custom_selectbox](./custom_radio.gif)
+![custom_radio](./custom_radio.gif)
 
 input radio custom
 
