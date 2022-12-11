@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>custom select box</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">
+            <div class="switch-box">
+                <em>전원</em>
+                <div class="switch">
+                    <input type="radio" name="switchRadio" id="switchRadio01" checked>
+                    <label for="switchRadio01">끄기</label>
+                    <input type="radio" name="switchRadio" id="switchRadio02">
+                    <label for="switchRadio02">켜기</label>
+                </div>
+            </div>
+            <div class="radio-box" style="margin-top: 20px;">
+                <div class="input-box">
+                    <input type="radio" name="basicRadio" id="radio01" checked>
+                    <label for="radio01">Type01</label>
+                </div>
+                <div class="input-box">
+                    <input type="radio" name="basicRadio" id="radio02">
+                    <label for="radio02">Type02</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('switchRadio02').addEventListener('change', () => {
+        if (document.getElementById('switchRadio02').checked) {
+            document.querySelector('.container').classList.add('on')
+        }
+    })
+    document.getElementById('switchRadio01').addEventListener('change', () => {
+        if (document.getElementById('switchRadio01').checked) {
+            document.querySelector('.container').classList.remove('on')
+        }
+    })
+</script>
+</html>

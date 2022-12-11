@@ -1,0 +1,224 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "pretendard";
+}
+
+*, :after, :before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+:root {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+   -ms-text-size-adjust: 100%;
+       text-size-adjust: 100%;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+     tab-size: 4;
+}
+
+html, body {
+  height: 100%;
+}
+
+.wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 100%;
+  background: #232323;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 360px;
+  height: 160px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-radius: 10px;
+  -webkit-box-shadow: 0;
+          box-shadow: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.container.on {
+  -webkit-box-shadow: 0 0 10px rgba(215, 210, 135, 0.7), 0 0 20px rgba(215, 210, 135, 0.7), 0 0 30px rgba(215, 210, 135, 0.7);
+          box-shadow: 0 0 10px rgba(215, 210, 135, 0.7), 0 0 20px rgba(215, 210, 135, 0.7), 0 0 30px rgba(215, 210, 135, 0.7);
+}
+
+.input-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.input-box input[type=radio] + label {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background: #FFFFFF;
+  color: #232323;
+  font-size: 0.9rem;
+  line-height: 20px;
+  text-indent: 24px;
+  border: 1px solid #676767;
+  border-radius: 50%;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.input-box input[type=radio] + label::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 6px);
+  left: calc(50% - 6px);
+  width: 12px;
+  height: 12px;
+  background: #676767;
+  border-radius: 50%;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+.input-box input[type=radio]:checked + label::after {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-animation: aniChecked 0.2s;
+          animation: aniChecked 0.2s;
+}
+@-webkit-keyframes aniChecked {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  80% {
+    -webkit-transform: scale(1.25);
+            transform: scale(1.25);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes aniChecked {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  80% {
+    -webkit-transform: scale(1.25);
+            transform: scale(1.25);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+.input-box input[type=radio] {
+  display: none;
+}
+
+.radio-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.radio-box .input-box {
+  width: 80px;
+}
+
+.switch-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.switch-box em {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 40px;
+  font-size: 1.125rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.switch-box .switch {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  margin-left: 20px;
+}
+.switch-box .switch input {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
+}
+.switch-box .switch label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50px;
+  height: 28px;
+  background: #D9D9D9;
+  font-size: 0.9rem;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  cursor: pointer;
+}
+.switch-box .switch label:nth-of-type(1) {
+  border-radius: 3px 0 0 3px;
+}
+.switch-box .switch label:nth-of-type(2) {
+  border-radius: 0 3px 3px 0;
+}
+.switch-box .switch input:checked + label {
+  background: #9D9D9D;
+  -webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5);
+          box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
