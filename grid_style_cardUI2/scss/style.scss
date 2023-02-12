@@ -1,0 +1,79 @@
+* {margin:0;padding:0;font:inherit;color:inherit;box-sizing: border-box;font-family: 'pretendard';}
+*, :after, :before {box-sizing:border-box;flex-shrink:0;}
+:root {-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-size-adjust:100%;line-height:1.5;overflow-wrap:break-word;-moz-tab-size:4;tab-size:4}
+html, body {height:100%;}
+button {padding: 0;background:none;border:0;cursor:pointer;}
+a {text-decoration:none}
+ul, ol, li {list-style: none;}
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+body {
+    overflow-x: hidden;
+}
+
+.wrap {
+    width: 100vw;
+}
+
+.grid-layout {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 100px 40px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 12px;
+    grid-auto-rows: auto;
+
+    &__item {
+        max-width: 360px;
+        width: 100%;
+        margin: 0 auto;
+        padding-bottom: 20px;
+
+        a {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__img {
+        display: inline-block;
+        width: 100%;
+        border-radius: 24px;
+    }
+
+    &__title {
+        color: #191919;
+        font-size: 1.25rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .date {
+        font-size: 1.125rem;
+    }
+}
+
+.tag {
+    display: flex;
+
+    &__item {
+        display: inline-flex;
+        position: relative;
+        margin-right: 12px;
+        font-size: 1.125rem;
+    
+        &::before {
+            content: '#';
+        }
+    
+        &.type01 {color: #61e6d8;}
+        &.type02 {color: #ebb537;}
+        &.type03 {color: #d474c9;}
+        &.type04 {color: #e95b5b;}
+    }
+}

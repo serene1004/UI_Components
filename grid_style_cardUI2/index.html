@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid layout</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="grid-layout">
+            <ul class="grid">
+                <li class="grid__item">
+                    <a href="#">
+                        <span style="background: #ecbfd1;" class="grid__img"></span>
+                        <div class="grid__info">
+                            <h3 class="grid__title">title</h3>
+                            <div class="tag">
+                                <span class="tag__item type02">javascript</span>
+                            </div>
+                            <span class="date">2022.12.08</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a href="#">
+                        <span style="background: #c596e0;" class="grid__img"></span>
+                        <div class="grid__info">
+                            <h3 class="grid__title">title</h3>
+                            <div class="tag">
+                                <span class="tag__item type03">html</span>
+                                <span class="tag__item type03">css</span>
+                            </div>
+                            <span class="date">2022.12.08</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a href="#">
+                        <span style="background: #4cb885;" class="grid__img"></span>
+                        <div class="grid__info">
+                            <h3 class="grid__title">title</h3>
+                            <div class="tag">
+                                <span class="tag__item type01">javascript</span>
+                            </div>
+                            <span class="date">2022.12.08</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a href="#">
+                        <span style="background: #e9a66f;" class="grid__img"></span>
+                        <div class="grid__info">
+                            <h3 class="grid__title">title</h3>
+                            <div class="tag">
+                                <span class="tag__item type04">css</span>
+                            </div>
+                            <span class="date">2022.12.08</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a href="#">
+                        <span style="background: #ec6b54;" class="grid__img"></span>
+                        <div class="grid__info">
+                            <h3 class="grid__title">title</h3>
+                            <div class="tag">
+                                <span class="tag__item type03">css</span>
+                            </div>
+                            <span class="date">2022.12.08</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a href="#">
+                        <span style="background: #eee37d;" class="grid__img"></span>
+                        <div class="grid__info">
+                            <h3 class="grid__title">title</h3>
+                            <div class="tag">
+                                <span class="tag__item type01">javascript</span>
+                            </div>
+                            <span class="date">2022.12.08</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a href="#">
+                        <span style="background: #7cd0f1;" class="grid__img"></span>
+                        <div class="grid__info">
+                            <h3 class="grid__title">title</h3>
+                            <div class="tag">
+                                <span class="tag__item type02">html</span>
+                            </div>
+                            <span class="date">2022.12.08</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a href="#">
+                        <span style="background: #60e4b1;" class="grid__img"></span>
+                        <div class="grid__info">
+                            <h3 class="grid__title">title</h3>
+                            <div class="tag">
+                                <span class="tag__item type03">css</span>
+                            </div>
+                            <span class="date">2022.12.08</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="grid__item">
+                    <a href="#">
+                        <span style="background: #8aabe9;" class="grid__img"></span>
+                        <div class="grid__info">
+                            <h3 class="grid__title">title</h3>
+                            <div class="tag">
+                                <span class="tag__item type03">css</span>
+                            </div>
+                            <span class="date">2022.12.08</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    let gridImg = document.querySelectorAll('.grid__img');
+    // gridImg 높이
+    for (let i = 0; i < gridImg.length; i++) {
+        let randomNum = Math.floor(Math.random() * (5 - 2)) + 2;
+        let randomHeight = randomNum * 100;
+        gridImg[i].style.height = randomHeight + 'px';
+    }
+
+    function gridLayout() {
+        const gridStyle = getComputedStyle(
+            document.querySelector('.grid')
+        );
+        const columnGap = parseInt(
+            gridStyle.getPropertyValue('column-gap')
+        );
+    
+        document.querySelectorAll('.grid__item').forEach((el) => {
+            el.style.gridRowEnd = `span ${Math.ceil(
+                el.querySelector('.grid__img').scrollHeight/10 + columnGap
+            )}`;
+        });
+    }
+    
+    gridLayout();
+    window.addEventListener('resize', gridLayout);
+</script>
+</html>
