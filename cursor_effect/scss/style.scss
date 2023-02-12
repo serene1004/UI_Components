@@ -1,0 +1,347 @@
+$white : #fff;
+$black-21 : #212529;
+$gray-66 : #666;
+$gray-99 : #999;
+$gray-c4 : #c4c4c4;
+$purple : #6200ff;
+
+$desktop : 1920px;
+$laptap : 1440px;
+$tablet-l : 1024px;
+$tablet-s : 768px;
+$mobile : 428px;
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+@mixin inner {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 60px;
+    @include response($tablet-l) {
+        padding: 0;
+    }
+}
+
+@mixin response($breakpoint) {
+    @if ($breakpoint == $desktop) {
+        @media screen and (max-width: $desktop) {
+            @content;
+        }
+    } @else if ($breakpoint == $laptap) {
+        @media screen and (max-width: $laptap) {
+            @content;
+        }
+    } @else if ($breakpoint == $tablet-l) {
+        @media screen and (max-width: $tablet-l) {
+            @content;
+        }
+    } @else if ($breakpoint == $tablet-s) {
+        @media screen and (max-width: $tablet-s) {
+            @content;
+        }
+    }
+}
+
+@include response($laptap) {
+    html {font-size: 14px;}
+}
+@include response($tablet-l) {
+    ::-webkit-scrollbar {display: none;}
+}
+
+.wrap {
+    width: 100%;
+    height: 100%;
+    color: $black-21;
+}
+
+.inner {
+    @include inner;
+    @include response($tablet-l) {
+        padding: 0 30px;
+    }
+    @include response($tablet-s) {
+        padding: 0 20px;
+    }
+}
+
+.header {
+    height: 80px;
+    background: $black-21;
+    color: $white;
+
+    .inner {
+        display: flex;
+        height: 100%;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        font-size: 3rem;
+        font-weight: bold;
+        text-transform: capitalize;
+        @include response($tablet-l) {
+            font-size: 2.75rem;
+        }
+        @include response($tablet-s) {
+            font-size: 2.5rem;
+        }
+    }
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+
+    &__item {
+        margin-left: 1rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: color 0.2s;
+
+        &:hover {
+            color: $gray-c4;
+        }
+
+        @include response($tablet-l) {
+            font-size: 1.125rem;
+        }
+    }
+}
+
+.main {
+    height: calc(100vh - 80px);
+    padding: 60px 0;
+
+    @include response($tablet-l) {
+        height: auto;
+        padding: 30px 0;
+    }
+
+    .list {
+        
+        &__item {
+            display: flex;
+            margin-bottom: 2em;
+
+            .dummy-rect {
+                margin-left: 2em;
+                margin-right: 0;
+            }
+
+            &:nth-child(2n) {
+                flex-direction: row-reverse;
+
+                .dummy-rect {
+                    margin-left: 0;
+                    margin-right: 2em;
+                }
+            }
+        }
+
+        &__info {
+            flex-shrink: 1;
+        }
+    }
+
+    h2 {
+        margin-bottom: 1em;
+        font-size: 2rem;
+        font-weight: bold;
+        text-transform: capitalize;
+        @include response($tablet-l) {
+            font-size: 1.75rem;
+        }
+    }
+
+    p {
+        font-size: 1.125rem;
+        @include response($tablet-l) {
+            font-size: 1rem;
+        }
+    }
+
+    .dummy-rect {
+        flex-shrink: 0;
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+        background: $purple;
+        opacity: 0.3;
+        @include response($tablet-l) {
+            width: 180px;
+            height: 180px;
+        }
+        @include response($tablet-s) {
+            width: 160px;
+            height: 160px;
+        }
+    }
+}
+
+.footer {
+    position: relative;
+    padding: 80px 0;
+    background: $black-21;
+    color: $white;
+    overflow: hidden;
+    @include response($tablet-l) {
+        padding: 60px 0;
+    }
+
+    &__top {
+        display: flex;
+        padding-bottom: 56px;
+        @include response($tablet-l) {
+            padding-bottom: 40px;
+        }
+        @include response($tablet-s) {
+            flex-direction: column;
+            padding-bottom: 32px;
+        }
+    }
+
+    &__contactus, &__info {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        @include response($tablet-s) {
+            width: 100%;
+        }
+
+        em {
+            display: inline-block;
+            margin-bottom: 50px;
+            font-size: 1.625rem;
+            text-transform: capitalize;
+            @include response($laptap) {
+                font-size: 1.5rem;
+                margin-bottom: 36px;
+            }
+            @include response($tablet-l) {
+                font-size: 1.375rem;
+                margin-bottom: 20px;
+            }
+            @include response($tablet-s) {
+                margin-bottom: 0;
+            }
+        }
+        
+        h3 {
+            font-size: 5.25rem;
+            font-weight: bold;
+            @include response($laptap) {
+                font-size: 4.25rem;
+            }
+            @include response($tablet-l) {
+                font-size: 3.25rem;
+            }
+        }
+
+        .about {
+            display: flex;
+            flex-direction: column;
+            margin-top: 2em;
+            color: $gray-99;
+            font-size: 1rem;
+            @include response($laptap) {
+                // margin-top: 52px;
+            }
+            @include response($tablet-l) {
+                // margin-top: 32px;
+            }
+            @include response($tablet-s) {
+                margin: 0;
+                padding-bottom: 2em;
+            }
+            
+            a:hover {
+                text-decoration: underline;
+            }
+            span, address {
+                margin-top: 1em;
+            }
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding-top: 56px;
+        border-top: 2px dashed $gray-c4;
+        @include response($tablet-l) {
+            padding-top: 40px;
+        }
+        @include response($tablet-s) {
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-top: 32px;
+        }
+    }
+
+    &__logo {
+        flex-shrink: 0;
+        width: 50%;
+        font-size: 5.25rem;
+        font-weight: bold;
+        text-transform: capitalize;
+        @include response($laptap) {
+            font-size: 4.25rem;
+        }
+        @include response($tablet-l) {
+            font-size: 3.25rem;
+        }
+        @include response($tablet-s) {
+            width: 100%;
+        }
+    }
+
+    .copyright {
+        flex-shrink: 1;
+        width: 50%;
+        margin-bottom: 1.5em;
+        color: $gray-99;
+        font-size: 0.9rem;
+        @include response($tablet-l) {
+            margin-bottom: 12px;
+        }
+        @include response($tablet-s) {
+            width: 100%;
+            margin-bottom: 0;
+        }
+    }
+
+    // footer 커서 효과
+    .cursor {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: $purple;
+        opacity: 0;
+        mix-blend-mode: exclusion;
+        transition: opacity 0.3s ease-out;
+        cursor: none;
+
+        @include response($tablet-l) {
+            width: 80px;
+            height: 80px;
+        }
+        @include response($tablet-s) {
+            width: 50px;
+            height: 50px;
+        }        
+
+        &.on {
+            opacity: 1;
+        }
+    }
+}

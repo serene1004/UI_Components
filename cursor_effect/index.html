@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Cursor effect</title>
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="inner">
+                <h1 class="header__logo">
+                    <a href="index.html" class="header__link">lorem.</a>
+                </h1>
+                <nav class="nav">
+                    <a href="#" class="nav__item">list01</a>
+                    <a href="#" class="nav__item">list02</a>
+                    <a href="#" class="nav__item">list03</a>
+                    <a href="#" class="nav__item">list04</a>
+                </nav>
+            </div>
+        </header>
+        <main class="main">
+            <div class="inner">
+                <ul class="list">
+                    <li class="list__item">
+                        <div class="list__info">
+                            <h2>lorem.01</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit repellendus dolor, tenetur delectus minima repellat unde soluta. Quae repellendus quaerat neque ducimus atque. Atque, eaque repudiandae alias nisi nam expedita.</p>
+                        </div>
+                        <span class="dummy-rect"></span>
+                    </li>
+                    <li class="list__item">
+                        <div class="list__info">
+                            <h2>lorem.02</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus obcaecati porro, iure hic sed consequatur consequuntur provident aperiam ea amet est atque autem natus sint recusandae quia itaque quasi minima.</p>
+                        </div>
+                        <span class="dummy-rect"></span>
+                    </li>
+                </ul>
+            </div>
+        </main>        
+        <footer class="footer">
+            <div class="inner">
+                <div class="footer__top">
+                    <div class="footer__contactus">
+                        <em>thank you</em>
+                        <h3>contact us</h3>
+                        <div class="about">
+                            <a href="#">dummymail@dummy.com</a>
+                            <span>02-1234-5678</span>
+                            <address>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</address>
+                        </div>
+                    </div>
+                    <div class="footer__info">
+                        <em>lorem.</em>
+                        <h3>
+                            better space<br>
+                            for<br>
+                            lifestyle.
+                        </h3>
+                    </div>
+                </div>
+                <div class="footer__bottom">
+                    <div class="footer__logo">lorem.</div>
+                    <div class="copyright">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima expedita aliquid numquam ipsam autem nam fugit adipisci, sit voluptatibus?</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        let footer = document.querySelector('footer');
+        let cursor = document.createElement('span');
+        cursor.setAttribute('class', 'cursor');
+        footer.appendChild(cursor);
+    
+        footer.addEventListener('mousemove', (e) => {
+            let x = e.pageX;
+            let y = e.pageY - (document.querySelector('header').clientHeight + document.querySelector('main').clientHeight);    // header, main의 높이만큼 뺌
+            cursor.style.left = x - (cursor.clientWidth/2)+'px';    // 커서의 중앙에 위치시키기위해 원너비의 절반만큼 뺌
+            cursor.style.top  = y - (cursor.clientWidth/2)+'px';    // 커서의 중앙에 위치시키기위해 원너비의 절반만큼 뺌
+        });
+    
+        footer.addEventListener('mouseenter', (e) => {
+            cursor.classList.add('on');
+        });
+    
+        footer.addEventListener('mouseleave', (e) => {
+            cursor.classList.remove('on');
+        });
+    })
+</script>
+</html>
