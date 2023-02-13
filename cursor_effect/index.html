@@ -86,8 +86,7 @@
         footer.addEventListener('mousemove', (e) => {
             let x = e.pageX;
             let y = e.pageY - (document.querySelector('header').clientHeight + document.querySelector('main').clientHeight);    // header, main의 높이만큼 뺌
-            cursor.style.left = x - (cursor.clientWidth/2)+'px';    // 커서의 중앙에 위치시키기위해 원너비의 절반만큼 뺌
-            cursor.style.top  = y - (cursor.clientWidth/2)+'px';    // 커서의 중앙에 위치시키기위해 원너비의 절반만큼 뺌
+            cursor.style.transform = `translate(${x - (cursor.clientWidth/2)+'px'}, ${y - (cursor.clientWidth/2)+'px'})`;       // 커서의 중앙에 위치시키기위해 원너비의 절반만큼 뺌
         });
     
         footer.addEventListener('mouseenter', (e) => {
