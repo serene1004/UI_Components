@@ -80,21 +80,30 @@
     window.addEventListener('DOMContentLoaded', () => {
         let footer = document.querySelector('footer');
         let cursor = document.createElement('span');
+        let cursor2 = document.createElement('span2');
         cursor.setAttribute('class', 'cursor');
+        cursor2.setAttribute('class', 'cursor2');
         footer.appendChild(cursor);
+        footer.appendChild(cursor2);
     
         footer.addEventListener('mousemove', (e) => {
             let x = e.pageX;
             let y = e.pageY - (document.querySelector('header').clientHeight + document.querySelector('main').clientHeight);    // header, main의 높이만큼 뺌
-            cursor.style.transform = `translate(${x - (cursor.clientWidth/2)+'px'}, ${y - (cursor.clientWidth/2)+'px'})`;       // 커서의 중앙에 위치시키기위해 원너비의 절반만큼 뺌
+            
+            window.requestAnimationFrame(() => {
+                cursor.style.transform = `translate(${x - (cursor.clientWidth/2)+'px'}, ${y - (cursor.clientWidth/2)+'px'})`;       // 커서의 중앙에 위치시키기위해 원너비의 절반만큼 뺌
+                cursor2.style.transform = `translate(${x - (cursor2.clientWidth/2)+'px'}, ${y - (cursor2.clientWidth/2)+'px'})`;    // 커서의 중앙에 위치시키기위해 원너비의 절반만큼 뺌
+            })
         });
     
         footer.addEventListener('mouseenter', (e) => {
             cursor.classList.add('on');
+            cursor2.classList.add('on');
         });
     
         footer.addEventListener('mouseleave', (e) => {
             cursor.classList.remove('on');
+            cursor2.classList.remove('on');
         });
     })
 </script>
