@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remember ID</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="login-container">
+            <h2>title</h2>
+            <div class="input-box">
+                <label for="inputId">id</label>
+                <input type="text" id="inputId" placeholder="아이디를 입력하세요.">
+            </div>
+            <div class="input-box">
+                <label for="inputPw">password</label>
+                <input type="password" id="inputPw" placeholder="비밀번호를 입력하세요.">
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="rememberCheck">
+                <label for="rememberCheck">ID remember</label>
+            </div>
+            <button type="button" id="loginBtn">sign in</button>
+        </div>
+    </div>
+</body>
+<script>
+    let inputId = document.querySelector('#inputId');
+    let inputPw = document.querySelector('#inputPw');
+    let rememberCheck = document.querySelector('#rememberCheck');
+    let loginBtn = document.querySelector('#loginBtn');
+
+    // 로그인버튼 클릭
+    loginBtn.addEventListener('click', () => {
+       
+        if (rememberCheck.checked) {    // rememberCheck 체크되어있다면 7일간 아이디기억
+            rememberId('id', inputId.value, 7);
+        } else {                        // rememberCheck 체크되어있지 않다면 아이디기억X
+            rememberId('id', inputId.value, 0);
+        }
+    })
+
+    // 아이디 기억하기 (쿠키생성)
+    function rememberId (name, value, expireDays) {
+        const today = new Date();
+        today.setDate(today.getDate() + expireDays);
+        document.cookie = name + '=' + encodeURI(value) + '; path=/; expires=' + today.toGMTString() + ';'
+    }
+
+    // 기억중인 아이디 가져오기
+    function getId (name) {
+        let cookie = document.cookie;
+        name = name + '=';
+        if (cookie.length > 0) {
+            let offset = cookie.indexOf(name);
+            if (offset != -1) {
+                offset += name.length;
+                let end = cookie.indexOf(";", offset);
+                if (end == -1)
+                    end = cookie.length;
+                return decodeURI(cookie.substring(offset, end));
+            }
+        }
+    }
+
+    if (getId('id')) {  // 가져올 아이디가 있다면
+        inputId.value = getId('id');    // id입력란에 기억하고있는 id정보 입력
+        rememberCheck.checked = true;   // rememberCheck 체크
+    }
+</script>
+</html>
