@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunch Roulette</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="roulette">
+            <canvas id="lunchRoulette" width="400" height="400"></canvas>
+            <button type="button" class="roulette-btn">select menu</button>
+        </div>
+    </div>
+</body>
+<script>
+    const roulette = document.querySelector('#lunchRoulette');
+    const rouletteBtn = document.querySelector('.roulette-btn');
+    const ctx = roulette.getContext('2d');
+
+    let menuList = ['떡볶이', '파스타', '짜장면', '라멘', '덮밥', '돈까스', '샐러드', '샌드위치']
+    let colors   = ['#573bd6', '#3b64d6', '#3b98d6', '#3bc4d6', '#3bd6c9']
+
+    const lunchRoulette = () => {
+        const rad = roulette.width/2;
+        const arc = Math.PI / (menuList.length / 2);
+
+        for (let i = 0; i < menuList.length; i++) {
+            ctx.beginPath();
+            ctx.fillStyle = colors[i % (colors.length)];
+            ctx.moveTo(rad, rad);
+            ctx.arc(rad, rad, rad, arc * (i - 1), arc * i);
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        ctx.fillStyle = "#FFFFFF";
+        ctx.font = "16px Pretendard";
+        ctx.textAlign = "center";
+
+        for (let i = 0; i < menuList.length; i++) {
+            const angle = (arc * i) + (arc / 2);
+            const posX = rad + Math.cos(angle) * (rad - 40);
+            const posY = rad + Math.sin(angle) * (rad - 40);
+
+            ctx.save();
+            ctx.translate(posX, posY);
+            ctx.rotate(angle + Math.PI / 2);
+
+            menuList[i].split(" ").forEach(text => {
+                ctx.fillText(text, 0, 0);
+            });
+            ctx.restore();
+        }
+    }
+    lunchRoulette();
+
+    rouletteBtn.addEventListener('click', () => {
+        roulette.style.transform = `rotate(0deg)`;
+        roulette.style.transition = `all 0s`;
+        rouletteBtn.setAttribute('disabled', true);
+
+        setTimeout(() => {
+            const random = Math.random() * 1000;
+            const rRotate = Math.floor(random + random) + 1800;
+
+            roulette.style.transform = `rotate(${rRotate}deg)`;
+            roulette.style.transition = `all 3s cubic-bezier(0.5, 1, 0.5, 1)`;
+        }, setTimeout(() => {
+            rouletteBtn.removeAttribute('disabled');
+        }, 3000))
+    })
+</script>
+</html>
