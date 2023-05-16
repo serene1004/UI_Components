@@ -1,0 +1,386 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "pretendard";
+}
+
+*, :after, :before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+:root {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+   -ms-text-size-adjust: 100%;
+       text-size-adjust: 100%;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+     tab-size: 4;
+}
+
+html, body {
+  height: 100%;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(75, 150, 225, 0.25);
+}
+
+.container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  -webkit-box-shadow: 0 0 2px #3b98d6;
+          box-shadow: 0 0 2px #3b98d6;
+}
+.container h3 {
+  margin-bottom: 32px;
+  color: #191919;
+  font-size: 24px;
+  font-weight: bold;
+}
+.container .btn-reset {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: auto;
+  height: 30px;
+  background: #3b98d6;
+  border-radius: 4px;
+  padding: 8px 16px;
+  color: #FFFFFF;
+}
+
+.roulette {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.roulette::after {
+  content: "";
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 50%;
+  border-top: 16px solid #0e5b8f;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.roulette-box {
+  border: 4px solid #0e5b8f;
+  border-radius: 50%;
+}
+.roulette-btn {
+  position: relative;
+  z-index: 2;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 32px auto 0;
+  padding: 8px 16px;
+  background: #3b98d6;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-transform: uppercase;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+}
+.roulette-btn:hover {
+  background: #2479b3;
+}
+.roulette-btn:active {
+  background: #0e5b8f;
+}
+.roulette-btn:disabled {
+  background: #c4c4c4;
+  pointer-events: none;
+}
+
+#lunchRoulette {
+  position: relative;
+  z-index: 1;
+  width: 480px;
+  height: 480px;
+  border: 6px solid #FFFFFF;
+  border-radius: 50%;
+  -webkit-transition: all 3s cubic-bezier(0.5, 1, 0.5, 1);
+  transition: all 3s cubic-bezier(0.5, 1, 0.5, 1);
+  overflow: hidden;
+}
+
+.option {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 320px;
+  gap: 16px;
+}
+.option_set {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+}
+.option_set h4, .option_set em {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 40px;
+  color: #191919;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.option_set span {
+  color: #676767;
+  font-size: 14px;
+}
+.option_box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 500px;
+  gap: 8px;
+}
+.option_box .input-box {
+  width: calc(50% - 4px);
+  gap: 8px;
+}
+.option .min-btn, .option .add-btn {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  background: #3b98d6;
+  border-radius: 4px;
+}
+.option .min-btn::before, .option .add-btn::before {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  left: calc(50% - 6px);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 12px;
+  height: 2px;
+  background: #FFFFFF;
+}
+.option .add-btn::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 1px);
+  left: calc(50% - 6px);
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 12px;
+  height: 2px;
+  background: #FFFFFF;
+}
+.option .add-btn::after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.option .btn-set {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto auto 0;
+  padding: 8px 16px;
+  background: #3b98d6;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-weight: bold;
+  text-transform: uppercase;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+}
+.option .btn-set:hover {
+  background: #2479b3;
+}
+.option .btn-set:active {
+  background: #0e5b8f;
+}
+.option .btn-set:disabled {
+  background: #d9d9d9;
+  pointer-events: none;
+}
+
+.input-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.input-box label {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  min-width: 48px;
+  color: #191919;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.input-box input {
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  width: 100%;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid #CED1D7;
+  border-radius: 4px;
+  color: #191919;
+  font-size: 16px;
+  outline: 0;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.input-box input:disabled {
+  background: #d9d9d9;
+  color: #FFFFFF;
+}
+.input-box input::-webkit-input-placeholder {
+  color: #828282;
+}
+.input-box input::-moz-placeholder {
+  color: #828282;
+}
+.input-box input:-ms-input-placeholder {
+  color: #828282;
+}
+.input-box input::-ms-input-placeholder {
+  color: #828282;
+}
+.input-box input::placeholder {
+  color: #828282;
+}
+.input-box input:focus {
+  border-color: #3b98d6;
+}
+.input-box input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+.input-box input:focus::-moz-placeholder {
+  opacity: 0;
+}
+.input-box input:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+.input-box input:focus::-ms-input-placeholder {
+  opacity: 0;
+}
+.input-box input:focus::placeholder {
+  opacity: 0;
+}

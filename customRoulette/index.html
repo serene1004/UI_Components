@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Roulette</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="container">
+            <h3>룰렛 설정</h3>
+            <button type="button" class="btn-reset">Reset</button>
+            <div class="option">
+                <div class="option_set">
+                    <h4>옵션 개수</h4>
+                    <button type="button" class="min-btn"><span class="blind">제거</span></button>
+                    <em class="cnt"></em>
+                    <button type="button" class="add-btn"><span class="blind">추가</span></button>
+                    <span>(2개 ~ 12개까지 설정가능)</span>
+                </div>
+                <div class="option_box">
+                    <div class="input-box">
+                        <label for="menu1">옵션1</label>
+                        <input type="text" id="menu1">
+                    </div>
+                    <div class="input-box">
+                        <label for="menu2">옵션2</label>
+                        <input type="text" id="menu2">
+                    </div>
+                </div>
+                <button type="button" class="btn-set">룰렛 생성</button>
+            </div>
+            <div class="roulette" style="display: none;">
+                <div class="roulette-box">
+                    <canvas id="lunchRoulette" width="600" height="600"></canvas>
+                </div>
+                <button type="button" class="roulette-btn">룰렛 돌리기</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./roulette.js"></script>
+</html>
