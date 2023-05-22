@@ -1,0 +1,84 @@
+@use './reset' as *;
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+.scroll-hidden {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #FFFFFF;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.main {
+    position: relative;
+    z-index: 3;
+    height: 100vh;
+    overflow: hidden;
+    transition: transform 0.6s;
+
+    section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        color: #FFFFFF;
+        font-size: 3rem;
+        font-weight: bold;
+        text-transform: capitalize;
+        transition: transform 0.6s;
+
+        &.section01 {
+            background: linear-gradient(to left, #b4ffd6, #45bd99);
+        }
+        &.section02 {
+            background: linear-gradient(to left, #b4ffff, #45b5bd);
+        }
+        &.section03 {
+            background: linear-gradient(to left, #b4dbff, #4583bd);
+        }
+        &.section04 {
+            background: linear-gradient(to left, #b4bcff, #454dbd);
+        }
+        &.footer {
+            position: fixed;
+            height: 500px;
+            background: linear-gradient(to left, #d7b4ff, #6945bd);
+        }
+    }
+}
