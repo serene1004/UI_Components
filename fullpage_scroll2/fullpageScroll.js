@@ -21,19 +21,28 @@ window.addEventListener('resize', () => {
 })
 
 // PC모드 휠이벤트
-document.querySelector('html').addEventListener('mousewheel', (e) => {
-    if (!scrolling) {           // 스크롤중이 아니라면
-        scrolling = setTimeout(() => {
-            scrolling = null;   // 스크롤값 초기화
-            
-            if (e.deltaY > 0) {         // e.deltaY가 0보다 작으면
-                pageDown();             // pageDown() 실행
-            } else if (e.deltaY < 0) {  // e.deltaY가 0보다 크면
-                pageUp();               // pageUp() 실행
-            }
-        }, 600)
+// 마우스휠이 멈추지않고 계속 돌고있거나, 노트북터치패드에서의 특정이벤트발생시
+// 스크롤이벤트가 멈추지않고 실행되는것을 막음
+let last = Date.now();
+window.addEventListener("wheel", function(e){
+    let now = Date.now();
+    let interval = now - last;
+    if(interval > 100) {
+        console.log("run event");
+        if (!scrolling) {           // 스크롤중이 아니라면
+            scrolling = setTimeout(() => {
+                scrolling = null;   // 스크롤값 초기화
+                
+                if (e.deltaY > 0) {         // e.deltaY가 0보다 작으면
+                    pageDown();             // pageDown() 실행
+                } else if (e.deltaY < 0) {  // e.deltaY가 0보다 크면
+                    pageUp();               // pageUp() 실행
+                }
+            }, 600)
+        }
     }
-})
+    last = now;
+}, { passive: false });
 
 // 휠을 내리기 & 밑에서 위로 터치
 function pageDown () {
