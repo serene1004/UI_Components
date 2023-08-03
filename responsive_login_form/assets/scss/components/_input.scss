@@ -1,0 +1,66 @@
+@use '../helpers/variable' as *;
+@use '../helpers/mixin' as *;
+
+.input-box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    input {
+        min-width: 160px;
+        width: 100%;
+        height: 32px;
+        padding: 0 8px;
+        border: 1px solid $border;
+        border-radius: 4px;
+        color: $black19;
+        font-size: 14px;
+        outline: 0;
+        transition: all 0.2s;
+
+        &:disabled {
+            background: $disabled;
+            border-color: transparent;
+            color: $gray82;
+        }
+        
+        &::placeholder {
+            color: $gray82;
+        }
+        
+        &:focus {
+            border-color: $primary;
+        
+            &::placeholder {
+                opacity: 0;
+            }
+        }
+
+        &.error {
+            border-color: $error;
+
+            & + label {
+                color: $error !important;
+            }
+        }
+    }
+
+    label {
+        color: $black19;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .error-msg {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        font-size: 12px;
+    }
+}
+
+input:-webkit-autofill {
+    box-shadow: 0 0 0 100px white inset;
+}

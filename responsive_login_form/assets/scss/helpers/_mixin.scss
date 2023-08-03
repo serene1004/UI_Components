@@ -1,0 +1,77 @@
+@use '../helpers/variable' as *;
+
+@mixin blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+
+@mixin ellipsis($line) {
+    @if ($line == 0) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    } @else if ($line) {
+        display: -webkit-box;
+        -webkit-line-clamp: $line;
+        -webkit-box-orient: vertical;
+        word-break: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@mixin verticalCenter {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+@mixin inner {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+@mixin iconBtn($size, $radius : 0) {
+    min-width: 0;
+    width: $size;
+    height: $size;
+    padding: 0;
+    
+    i {
+        font-size: $size * 0.75;
+    }
+   
+    @if ($radius != 0) {
+        border-radius: $radius;
+    }
+}
+
+@mixin response($breakpoint) {
+    @if ($breakpoint == $desktop) {
+        @media screen and (max-width: $desktop) {
+            @content;
+        }
+    } @else if ($breakpoint == $labtop) {
+        @media screen and (max-width: $labtop) {
+            @content;
+        }
+    } @else if ($breakpoint == $tablet-l) {
+        @media screen and (max-width: $tablet-l) {
+            @content;
+        }
+    } @else if ($breakpoint == $tablet-s) {
+        @media screen and (max-width: $tablet-s) {
+            @content;
+        }
+    } @else if ($breakpoint == $mobile) {
+        @media screen and (max-width: $mobile) {
+            @content;
+        }
+    }
+}

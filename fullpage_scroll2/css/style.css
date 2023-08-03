@@ -155,7 +155,6 @@ table {
   background: linear-gradient(to left, #b4bcff, #454dbd);
 }
 .main section.footer {
-  position: fixed;
   height: 500px;
   background: -webkit-gradient(linear, right top, left top, from(#d7b4ff), to(#6945bd));
   background: linear-gradient(to left, #d7b4ff, #6945bd);

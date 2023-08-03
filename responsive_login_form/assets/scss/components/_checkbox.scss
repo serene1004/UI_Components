@@ -1,0 +1,67 @@
+@use '../helpers/variable' as *;
+@use '../helpers/mixin' as *;
+
+// custom checkbox
+.checkbox {
+    display: flex;
+    align-items: center;
+    
+    input + label {
+        display: inline-block;
+        position: relative;
+        width: 20px;
+        height: 20px;
+        background: $white;
+        border: 1px solid $border;
+        border-radius: 3px;
+        color: $black19;
+        font-size: 16px;
+        line-height: 20px;
+        text-indent: 24px;
+        white-space: nowrap;
+        transition: all 0.1s;
+        cursor: pointer;
+    
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 18px;
+            height: 18px;
+            background: $white no-repeat center;
+            border-radius: 2px;
+            transform: translate(-50%, -50%);
+        }
+    }
+    
+    input:checked + label {
+        border-color: $primary;
+    
+        &::after {
+            background-image: url(../images/ic_check24.png);
+            transform: translate(-50%, -50%) scale(1);
+            animation: aniChecked 0.1s;
+        }
+    }
+
+    @keyframes aniChecked {
+        0% {
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        100% {
+            transform: translate(-50%, -50%) scale(1);
+        }
+    }
+    
+    input {
+        display: none;
+    }
+    
+    input:disabled + label {
+        background: $graye6;
+        border-color: transparent;
+        cursor: default;
+    }
+}

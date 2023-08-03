@@ -1,0 +1,84 @@
+@use '../helpers/variable' as *;
+@use '../helpers/mixin' as *;
+
+.btn-wrap {
+    display: flex;
+}
+
+a[class^="btn-"],
+button[class^="btn-"] {
+    position: relative;
+    display: inline-flex; 
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    height: 32px;
+    background: $primary;
+    color: $white;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 0 8px;
+
+    &:hover {
+        background-color: $primary-hover;
+    }
+    
+    &.small {
+        min-width: 60px;
+    }
+
+    &.medium {
+        min-width: 128px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    &.large {
+        min-width: 256px;
+        height: 48px;
+        font-size: 20px;
+    }
+
+    &.full {
+        width: 100%;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    &:disabled {
+        cursor: default;
+        background: $graybd;
+    }
+
+    &.s24 {
+        @include iconBtn(24px);
+    }
+    &.s32 {
+        @include iconBtn(32px);
+    }
+    &.s36 {
+        @include iconBtn(36px);
+    }
+    &.s40 {
+        @include iconBtn(40px);
+    }
+    &.s48 {
+        @include iconBtn(48px);
+    }
+
+    &.c24 {
+        @include iconBtn(24px, 50%);
+    }
+    &.c32 {
+        @include iconBtn(32px, 50%);
+    }
+    &.c36 {
+        @include iconBtn(36px, 50%);
+    }
+    &.c40 {
+        @include iconBtn(40px, 50%);
+    }
+    &.c48 {
+        @include iconBtn(48px, 50%);
+    }
+}

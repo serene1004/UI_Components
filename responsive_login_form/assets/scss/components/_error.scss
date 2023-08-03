@@ -1,0 +1,22 @@
+@use '../helpers/variable' as *;
+@use '../helpers/mixin' as *;
+
+.error-msg {
+    display: inline-flex;
+    position: relative;
+    color: $error;
+    font-size: 14px;
+    visibility: hidden;
+    @include response($tablet-s) {
+        font-size: 12px;
+    }
+
+    &::before {
+        content: '*';
+        margin-right: 4px;
+    }
+
+    &.on {
+        visibility: visible;
+    }
+}
