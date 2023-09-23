@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>SVG Scroll Animation</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="inner">
+                <h1>헤더에욤ㅎ</h1>
+            </div>
+        </header>
+        <main class="main">
+            <div class="inner">
+                <svg id="svgDrawLine" width="870" height="6713" viewBox="0 0 870 6713" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path id="drawLine" d="M264.618 0.275818L159.282 643.993C385.558 983.408 800.658 1698.52 650.848 1843.65C463.585 2025.06 -332.285 1767.57 159.282 2791.67C650.848 3815.76 972.706 4143.48 838.111 4465.33C703.515 4787.19 358.249 4547.26 217.801 5278.76C77.3538 6010.26 399.212 6402.34 410.916 6712.49" stroke="#191919" />
+                </svg>
+            </div>
+        </main>
+    </div>
+</body>
+<script>
+    let windowHeight = document.querySelector('.wrap').getBoundingClientRect().height;
+    let path = document.querySelector('#drawLine');
+    let pathLength = Math.ceil(path.getTotalLength());
+    let correctionValue = pathLength/(windowHeight - window.innerHeight);
+    path.style.strokeDashoffset = pathLength;
+    console.log(windowHeight, pathLength/correctionValue);
+
+    window.addEventListener('scroll', () => {
+        correctionValue = pathLength/(windowHeight - window.innerHeight);
+        path.style.strokeDashoffset = `${pathLength - window.scrollY*correctionValue}`;
+    })
+</script>
+</html>
