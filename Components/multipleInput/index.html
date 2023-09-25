@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Input</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="column-box">
+            <div class="column-box_item">
+                <div id="test01" class="input-box multipleInput">
+                    <label class="multipleInput_list">
+                        <button type="button" class="reset-btn">Reset</button>
+                    </label>
+                    <input type="text">
+                </div>
+                <button type="button" class="getData-btn" onclick="multipleInput.getData('test01');">getData</button>
+            </div>
+            <div class="column-box_item">
+                <div id="test02" class="input-box multipleInput">
+                    <label class="multipleInput_list">
+                        <button type="button" class="reset-btn">Reset</button>
+                    </label>
+                    <input type="text">
+                </div>
+                <button type="button" class="getData-btn" onclick="multipleInput.getData('test02');">getData</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./assets/js/multipleInput.js"></script>
+<script>
+    multipleInput.init('test01');
+    multipleInput.init('test02');
+</script>
+</html>
