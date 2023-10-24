@@ -1,4 +1,16 @@
+/**
+ * ## select Tag를 멀티/단일선택이 가능한 커스텀 UI로 변경해주는 기능
+ * 
+ * - init()     - 셀렉트태그를 드롭다운으로 변환하고 동작 될 수 있도록합니다.
+ * - add()      - 드롭다운의 목록에서 특정값을 선택처리합니다.
+ * - remove()   - 드롭다운의 선택되어있는 목록에서 특정값을 선택해제합니다.
+ * - getData()  - 드롭다운에서 선택되어있는 목록데이터를 array로 가져옵니다.
+ * - reset()    - 드롭다운을 선택목록을 모두 초기화합니다. unmodifiable된 값은 예외입니다.
+ */
 class Dropdown {
+    /**
+     * @param {string} selectId - select id
+     */
     constructor(selectId) {
         this.selectTag = document.querySelector(`#${selectId}`);
         this.id = selectId;
@@ -6,7 +18,7 @@ class Dropdown {
         this.multiple;
         this.selectedItem = [];
         this.placeholder;
-        this.unmodifiable;
+        this.unmodifiable = [];
 
         for (let key of this.selectTag.children) {
             const title = key.innerText;
@@ -19,21 +31,24 @@ class Dropdown {
             };
             this.data.push(dropdownData);
         }
-        
+
         /**
-         * 드롭다운 실행
-         * @param {Object} options
-         * multiple     - 다중선택 가능여부
-         * placeholder  - 플레이스홀더문구
-         * selectedItem - 선택되어있는 목록
-         * unmodifiable - 수정불가한 값 지정
+         * Dropdown 실행
+         * @param {Object} options : 드롭다운실행 시 설정할 옵션값.
+         * 
+         * - multiple : true|false,   (default: true)      - 다중선택 가능여부에 대한 선택입니다.
+         * - placeholder : string     (default: undefined) - 플레이스홀더 문구를 설정합니다.
+         * - selectedItem : array     (default: undefined) - 셀렉트박스 렌더링 시 선택되어있는 아이템목록입니다.
+         * - unmodifiable : array     (default: undefined) - chip목록에서 삭제할 수 없는 값을 설정합니다.
+         * - resetButtonLang : string (default: 'reset')   - reset버튼의 텍스트를 설정합니다.
          */
         this.init = function(options) {
             if (options) {
                 this.multiple = options.multiple !== undefined ? options.multiple : true;
                 this.placeholder = options.placeholder !== undefined ? options.placeholder : this.placeholder;
-                this.unmodifiable = options.unmodifiable !== undefined ? options.unmodifiable : this.unmodifiable;
                 this.selectedItem = options.selectedItem !== undefined ? options.selectedItem : this.selectedItem;
+                this.unmodifiable = options.unmodifiable !== undefined ? options.unmodifiable : this.unmodifiable;
+                this.resetButtonLang = options.resetButtonLang !== undefined ? options.resetButtonLang : 'reset';
 
                 if (this.selectedItem.length !== 0) {
                     this.data.forEach(dataItem => {
@@ -45,8 +60,9 @@ class Dropdown {
             } else {
                 this.multiple = true;
                 this.placeholder = this.placeholder;
-                this.unmodifiable = this.unmodifiable;
                 this.selectedItem = this.selectedItem;
+                this.unmodifiable = this.unmodifiable;
+                this.resetButtonLang = 'reset';
             }
 
             const select = document.querySelector(`#${this.id}`);
@@ -55,6 +71,7 @@ class Dropdown {
             dropdown.setAttribute('id', this.id);
             dropdown.classList.add('dropdown');
             
+            // 드롭다운 추가 후 기존 select태그 제거
             select.parentElement.appendChild(dropdown);
             select.remove();
 
@@ -88,7 +105,7 @@ class Dropdown {
                 resetBtn.classList.add('dropdown_reset');
                 dropdown.classList.add('dropdown', 'multiple');
 
-                resetBtn.textContent = 'reset';
+                resetBtn.textContent = this.resetButtonLang;
                 
                 dropdownBtn.appendChild(chipBox);
                 dropdownBtn.appendChild(resetBtn);
@@ -96,7 +113,7 @@ class Dropdown {
                 const paddingRightValue = resetBtn.clientWidth + 16;
                 dropdownBtn.style.paddingRight = `${paddingRightValue}px`;
             }
-            
+
             // 옵션리스트 생성
             for (let i = 0; i < this.data.length; i++) {
                 const optionItem = document.createElement('button');
@@ -106,7 +123,7 @@ class Dropdown {
                 optionItem.textContent = this.data[i].title;
             
                 if (this.data[i].selected) {
-                    const chip = createChips(this.data[i].title, this.data[i].value, this.unmodifiable);
+                    const chip = createChip(this.data[i].title, this.data[i].value, this.unmodifiable);
                     dropdownBtnText.classList.add('hide');
                     dropdown.querySelector('.chipBox').insertAdjacentElement('beforeend', chip);
                 }
@@ -118,6 +135,7 @@ class Dropdown {
             document.addEventListener('click', function(e) {
                 e.stopPropagation();
                 const dropdowns = document.querySelectorAll('.dropdown');
+
                 dropdowns.forEach((el) => {
                     if (!el.contains(e.target)) {
                         el.classList.remove('on');
@@ -135,27 +153,16 @@ class Dropdown {
 
             if (this.multiple) {    // 다중선택이 가능한 셀렉트박스인경우
                 dropdown.querySelectorAll('.option_item').forEach(el => {
-                    el.addEventListener('click', function() {
-                        el.classList.add('selected');
-                        dropdown.querySelector('.chipBox').insertAdjacentElement('beforeend', createChips(el.innerText, el.value, this.unmodifiable));
-                        dropdownBtnText.classList.add('hide');
+                    el.addEventListener('click', e => {
+                        this.add(e.target.value);
                     })
                 });
 
                 // X버튼 클릭시 chip제거
-                dropdown.querySelector('.chipBox').addEventListener('click', function(e) {
+                dropdown.querySelector('.chipBox').addEventListener('click', (e) => {
                     e.stopPropagation();
                     if (e.target.tagName === 'BUTTON') {
-                        dropdown.querySelectorAll('.option_item').forEach(el => {
-                            if (el.value === e.target.nextElementSibling.value) {
-                                el.classList.remove('selected');
-                            }
-                        })
-                        e.target.parentElement.remove();
-                    }
-
-                    if (dropdown.querySelector('.chipBox').children.length === 0) {
-                        dropdownBtnText.classList.remove('hide');
+                        this.remove(e.target.nextElementSibling.value);
                     }
                 });
 
@@ -180,8 +187,8 @@ class Dropdown {
                 }
             }
 
-            // 멀티드롭다운의 칩생성함수
-            function createChips(title, value, unmodifiable) {
+            // 칩생성함수
+            function createChip(title, value, unmodifiable) {
                 const chip = document.createElement('span');
                 const itemName = document.createElement('span');
                 const chipBtn = document.createElement('button');
@@ -197,7 +204,7 @@ class Dropdown {
                 chip.appendChild(chipBtn);
                 chip.appendChild(inputHidden);
             
-                if (value === unmodifiable) {
+                if (unmodifiable.includes(value)) {
                     chipBtn.setAttribute('disabled', true);
                 }
             
@@ -207,9 +214,93 @@ class Dropdown {
     }
 
     /**
-     * dropdown의 데이터를 추출하는 메서드
-     *
-     * @returns {Array<Object>|null} 드롭다운의 데이터배열을 반환.
+     * 드롭다운 목록선택 및 칩 생성
+     * @param {string|array} - 드롭다운에서 선택처리할 값
+     */
+    add(data) {
+        const dropdown = document.querySelector(`#${this.id}`);
+        const dropdownBtnText = dropdown.querySelector('.dropdown_btn_text');
+
+        /**
+         * 새로운 칩을 생성
+         * @param {string} title - 칩에 표시할 텍스트
+         * @param {string} value - 칩과 연결될 값
+         */
+        function createChip(title, value) {
+            const chip = document.createElement('span');
+            const itemName = document.createElement('span');
+            const chipBtn = document.createElement('button');
+            const inputHidden = document.createElement('input');
+
+            chip.setAttribute('class', 'chip');
+            inputHidden.setAttribute('type', 'hidden');
+            inputHidden.setAttribute('value', value);
+            itemName.textContent = title;
+
+            chipBtn.setAttribute('type', 'button');
+            chip.appendChild(itemName);
+            chip.appendChild(chipBtn);
+            chip.appendChild(inputHidden);
+
+            return chip;
+        }
+
+        function handleDataItem(dataItem) {
+            const selectedOption = dropdown.querySelector(`.option_item[value="${dataItem}"]`);
+          
+            if (selectedOption && !selectedOption.classList.contains('selected')) {
+                const chip = createChip(selectedOption.innerText, dataItem);
+                dropdown.querySelector('.chipBox').appendChild(chip);
+                selectedOption.classList.add('selected');
+            }
+        }
+          
+        if (Array.isArray(data)) {
+            data.forEach(handleDataItem);
+        } else if (typeof data === 'string') {
+            handleDataItem(data);
+        }
+        
+        dropdownBtnText.classList.add('hide');
+    }
+    
+    /**
+     * 드롭다운 선택해제 및 칩 제거
+     * @param {string|array} - 드롭다운에서 선택해제할 값
+     */
+    remove(data) {
+        const dropdown = document.querySelector(`#${this.id}`);
+        const dropdownBtnText = dropdown.querySelector('.dropdown_btn_text');
+        const chipBox = dropdown.querySelector('.chipBox');
+        const valuesToRemove = Array.isArray(data) ? data : [data];
+      
+        valuesToRemove.forEach(value => {
+            const chip = chipBox.querySelector(`.chip input[value="${value}"]`);
+            
+            if (this.unmodifiable.includes(value)) {
+                console.log(`${value}는 삭제할 수 없습니다.`);
+                return;
+            }
+            
+            dropdown.querySelectorAll('.option_item').forEach(el => {
+                if (el.value === value) {
+                    el.classList.remove('selected');
+                }
+            });
+            
+            if (chip) {
+                chip.parentElement.remove();
+            }
+        });
+      
+        if (chipBox.children.length === 0) {
+            dropdownBtnText.classList.remove('hide');
+        }
+    }
+
+    /**
+     * Dropdown의 데이터 배열 반환.
+     * @returns {Array<Object>|null} Dropdown의 데이터배열 반환
      */
     getData() {
         const dropdown = document.querySelector(`#${this.id}`);
@@ -237,19 +328,26 @@ class Dropdown {
     }
 
     /**
-     * 드롭다운을 초기화하는 메서드
+     * Dropdown 초기화
+     * unmodifiable로 지정된 값은 reset의 영향을 받지않음.
      */
     reset() {
         const dropdown = document.querySelector(`#${this.id}`);
         dropdown.querySelectorAll('.option_item').forEach((el) => {
-            el.classList.remove('selected');
+            if (!this.unmodifiable.includes(el.value)) {
+                el.classList.remove('selected');
+            }
         });
     
         if (this.multiple === true) {
             dropdown.querySelectorAll('.chipBox .chip').forEach((el) => {
-                el.remove();
+                if (!this.unmodifiable.includes(el.querySelector('input').value)) {
+                    el.remove();
+                }
             });
-            dropdown.querySelector('.dropdown_btn_text').classList.remove('hide');
+            if (this.unmodifiable.length === 0) {
+                dropdown.querySelector('.dropdown_btn_text').classList.remove('hide');
+            }
         } else {
             const dropdownBtnText = dropdown.querySelector('.dropdown_btn_text');
             dropdownBtnText.textContent = this.placeholder;
