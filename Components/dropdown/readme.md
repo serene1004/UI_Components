@@ -1,16 +1,18 @@
 # 커스텀 드롭다운
 
-<select id="customDropdown01">
-    <option value="item01">아이템01</option>
-    <option value="item02">아이템02</option>
-    <option value="item03">아이템03</option>
-    <option value="item04">아이템04</option>
-    <option value="item05">아이템05</option>
-    <option value="item06">아이템06</option>
-    <option value="item07">아이템07</option>
-</select>
-select 태그를 멀티/단일선택이 가능한 커스텀 UI로 변경해주는 기능<br>
-<br>
+select 태그를 멀티/단일선택이 가능한 커스텀 UI로 변경해주는 기능
+
+    <!-- 기본 select -->
+    <select id="customDropdown01">
+        <option value="item01">아이템01</option>
+        <option value="item02">아이템02</option>
+        <option value="item03">아이템03</option>
+        <option value="item04">아이템04</option>
+        <option value="item05">아이템05</option>
+        <option value="item06">아이템06</option>
+        <option value="item07">아이템07</option>
+    </select>
+
 
 ![multipleDropdown01](./multipleDropdown01.gif)<br>
 옵션으로 다중선택여부, 플레이스홀더 문구를 설정하여 드롭다운을 생성할 수 있다.
