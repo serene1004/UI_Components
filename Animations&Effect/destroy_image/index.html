@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>destroy Image</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<div class="img-box"></div>
+		</div>
+	</div>
+</body>
+<script>
+	const imgBox = document.querySelector('.img-box');
+	const pixelArray = [];
+	const xArray = [];
+	const yArray = [];
+	const width = 30;
+	const height = 30;
+	let randomValue;
+
+	const getRandomNumber = (min, max) => {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	const pixelation = () => {
+		for (let i = 0; i < width; i++) {
+			for (let j = 0; j < height; j++) {
+				const pixel = document.createElement('span');
+
+				imgBox.appendChild(pixel);
+				pixel.style.top = `${j * 20}px`;
+				pixel.style.left = `${i * 20}px`;
+				pixel.style.backgroundPosition = `${-i * 20}px ${-j * 20}px`;
+
+				randomX = getRandomNumber(-25, 25);
+				randomY = getRandomNumber(-25, 25);
+
+				pixelArray.push(pixel)
+				xArray.push(randomX);
+				yArray.push(randomY);
+			}
+		}
+	}
+	pixelation();
+	
+	imgBox.addEventListener('click', () => {
+		pixelArray.forEach((pixel, i) => {
+			pixel.style.transform = `translate(${xArray[i] * 50}px, ${yArray[i] * 50}px)`
+		})
+	})
+</script>
+</html>
